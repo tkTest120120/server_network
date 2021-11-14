@@ -4,7 +4,7 @@
   "description": "la assignment mon lap trinh server cho android",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --inspect app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -19,7 +19,5 @@
     "mysql": "^2.18.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
-  }
+  "devDependencies": {}
 }
