@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // const ipAdress = '192.168.43.190';
 const ipAdress = '192.168.1.13';
 
-app.listen(app.get('port'), ipAdress, () => {
+app.listen(process.env.PORT , ipAdress, () => {
     console.log("Khởi động server tại http://" + ipAdress + ":" + app.get('port'));
     // console.log("Khởi động server tại http://" + 'http://127.0.0.1' +  ":" + app.get('port') );    
     // console.log("Khởi động server tại http://localhost" + ":" + app.get('port') );    
