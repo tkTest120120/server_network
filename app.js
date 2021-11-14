@@ -39,11 +39,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // khởi động server
 // const ipAdress = '192.168.43.190';
 const ipAdress = '192.168.1.13';
+const cong = process.env.PORT;
 
-app.listen(process.env.PORT , ipAdress, () => {
-    console.log("Khởi động server tại http://" + ipAdress + ":" + app.get('port'));
+app.listen( cong , () => {
+    // console.log("Khởi động server tại http://" + ipAdress + ":" + app.get('port'));
     // console.log("Khởi động server tại http://" + 'http://127.0.0.1' +  ":" + app.get('port') );    
     // console.log("Khởi động server tại http://localhost" + ":" + app.get('port') );    
+    console.log("Khởi động server tại http://localhost" + ":" + cong ); 
 });
 
 // test
