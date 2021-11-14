@@ -1,0 +1,15 @@
+npm init
+npm install --save-dev nodemon
+npm install express --save
+npm install --save path
+
+npm install mysql --save
+npm i express-myconnection --save
+npm i morgan --save
+npm install body-parser --save
+npm install ejs --save
+
+npm install cors --save
+
+npm install axios --save
+
