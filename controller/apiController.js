@@ -3,6 +3,7 @@ const controller = {};
 controller.getProducts = (req, res) => {
     req.getConnection((err, connection) => {
         if (err) res.json(err);
+        
         connection.query('select * from products', (err2, rows) => {
             if (err2) res.json(err2);
 
@@ -24,6 +25,7 @@ controller.addProducts = (req, res) => {
     //
     req.getConnection((err, connection) => {
         if (err) res.json(err);
+
         connection.query('insert into products set ? , createDate = CURRENT_TIMESTAMP, updateFrom = NULL', data, (err2, result) => {
             if (err2) res.json(err2);
 
@@ -45,6 +47,7 @@ controller.updateProducts = (req, res) => {
     //
     req.getConnection((err, connection) => {
         if (err) res.json(err);
+
         connection.query('update products set ? ,`updateFrom`= CURRENT_TIMESTAMP where id = ?', [data, id], (err2, result) => {
             if (err2) res.json(err2);
 
@@ -61,8 +64,10 @@ controller.deleteProducts = (req, res) => {
     //
     req.getConnection((err, connection) => {
         if (err) res.json(err);
+
         connection.query('DELETE FROM `products` WHERE id = ?', [id], (err2, result) => {
             if (err2) res.json(err2);
+            
             res.send('Xóa sản phẩm thành công');
         });
     }); // end getConnection
