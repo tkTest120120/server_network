@@ -45,3 +45,20 @@ CREATE TABLE receipts (
     ngayMua TEXT NOT NULL,
     trangThai TEXT
 );
+
+CREATE TABLE products (
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    name TEXT NOT NULL,
+    price TEXT NOT NULL,
+    description TEXT NOT NULL,
+    createDate DATETIME NOT NULL,
+    updateFrom DATETIME
+);
+
+INSERT INTO `products`(`id`, `name`, `price`, `description`, `createDate`, `updateFrom`) VALUES ( NULL , 'kem' , '333' , 'moi' , CURRENT_TIMESTAMP , NULL )
+
+UPDATE `products` SET `name`= 'moi2' ,`price`= '222' ,`description`= 'cn' ,`updateFrom`= CURRENT_TIMESTAMP WHERE id = 1
+
+DELETE FROM `products` WHERE id = 1
+
+SELECT * FROM `products`

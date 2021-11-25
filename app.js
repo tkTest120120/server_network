@@ -11,6 +11,8 @@ const app = express();
 const customerRoutes = require('./routes/customer');
 // routes for react native
 const mobileRoutes = require('./routes/mobile');
+
+const apiRoutes = require('./routes/api');
 // cài đặt path
 app.set('port', 3001);
 app.set('views', path.join(__dirname, 'views'));
@@ -27,19 +29,21 @@ app.use(myConnection(mysql, {
     password: '47tKHpVqR3',
     port: 3306,
     database: 'JnWiETIzRg'
-}, 'single'));
+}, 'request'));
 // express
 app.use(express.urlencoded({ extended: false }));
 // routes
 app.use('/', customerRoutes);
 
 app.use('/', mobileRoutes);
+
+app.use('/', apiRoutes);
 // static file
 app.use(express.static(path.join(__dirname, 'public')));
 // khởi động server
 // const ipAdress = '192.168.43.190';
 const ipAdress = '192.168.1.13';
-const cong = process.env.PORT;
+const cong = process.env.PORT || 3000;
 
 app.listen( cong , () => {
     // console.log("Khởi động server tại http://" + ipAdress + ":" + app.get('port'));
