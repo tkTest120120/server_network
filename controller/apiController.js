@@ -14,12 +14,13 @@ controller.getProducts = (req, res) => {
 
 controller.addProducts = (req, res) => {
     // body params  query
+    console.log("--------------------------- POST --------------------------");
     console.log(req.body);
     var data = {
         id: null,
         name: req.body.name,
         price: req.body.price,
-        description: req.body.description
+        description: req.body.description        
     };
     // console.log(data);
     //
