@@ -14,14 +14,14 @@ controller.getProducts = (req, res) => {
 
 controller.addProducts = (req, res) => {
     // body params  query
-    // console.log(req.body);
+    console.log(req.body);
     var data = {
         id: null,
         name: req.body.name,
         price: req.body.price,
         description: req.body.description
     };
-    console.log(data);
+    // console.log(data);
     //
     req.getConnection((err, connection) => {
         if (err) res.json(err);
