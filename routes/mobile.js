@@ -6,11 +6,11 @@ router.get('/mobile/users' , mobileController.getUsers );
 
 router.get('/mobile/products' , mobileController.getProducts );
 
-router.post('/mobile/products' , mobileController.addProducts );
+router.post('/mobile/add_products' , mobileController.addProducts );
 
-router.post('/mobile/delete' , mobileController.deleteProduct );
+router.post('/mobile/delete_products' , mobileController.deleteProduct );
 
-router.post('/mobile/update' , mobileController.updateProduct );
+router.post('/mobile/update_products' , mobileController.updateProduct );
 
 router.post('/mobile/get' , mobileController.getSP );
 
