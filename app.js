@@ -3,6 +3,7 @@ const express = require('express'),
     morgan = require('morgan'),
     mysql = require('mysql'),
     cors = require('cors'),
+    multer = require('multer'),
     bodyParser = require('body-parser'),
     myConnection = require('express-myconnection');
 
@@ -55,9 +56,26 @@ app.listen( cong , () => {
 
 // test
 //
+const ImageSchema = require('./database/databases');
+const fs = require('fs');
 
 app.post('/test', (req, res) => {
-    console.log(req.body);    
+    var img = fs.readFileSync(req.file.path);
+    var encode_image = img.toString("base64");
+    // Define a JSONobject for the image attributes for saving to database
 
-    res.json("post successfully")
+    const finalImg = new ImageSchema({        
+        imgName : 'img',
+        image: new Buffer(encode_image, "base64"),
+        contentType: req.file.mimetype
+    });
+    finalImg.save().then(()=>{        
+        if (err) return console.log(err);
+
+        console.log("saved to database");
+        console.log('\n\t\t\t\t add img thanh cong\n\n');
+        res.send('luu anh thanh cong');
+    }).catch((err)=>{
+        throw err;
+    });
 });
