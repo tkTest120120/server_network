@@ -15,6 +15,19 @@ const mobileRoutes = require('./routes/mobile');
 
 const apiRoutes = require('./routes/api');
 
+// Định nghĩa nơi lưu trữ , cách lấy file
+const storage = multer.diskStorage({
+    destination : (req , file , res)=>{
+        res(null , './upload')
+    },
+    filename : (req , file , res)=>{
+        res(null , file.originalname )
+    }
+});
+// khai báo đối tượng multer
+// lưu trữ trên máy tính với 2 tham số định nghĩa ở trên destination , filename
+var upload = multer({ storage : storage });
+
 // cài đặt path
 app.set('port', 3001);
 app.set('views', path.join(__dirname, 'views'));
@@ -59,7 +72,8 @@ app.listen( cong , () => {
 const ImageSchema = require('./database/databases');
 const fs = require('fs');
 
-app.post('/test', (req, res) => {
+app.post('/test', upload.single("tenfile"), (req, res) => {
+    console.log(req.file);
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString("base64");
     // Define a JSONobject for the image attributes for saving to database
