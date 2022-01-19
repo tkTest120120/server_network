@@ -76,7 +76,7 @@ app.post('/test', upload.single("tenfile"), (req, res) => {
     console.log(req.file);
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString("base64");
-    
+    // Define a JSONobject for the image attributes for saving to database
 
     const finalImg = new ImageSchema({        
         imgName : 'img',
