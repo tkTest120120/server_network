@@ -13,7 +13,7 @@ const customerRoutes = require('./routes/customer');
 const mobileRoutes = require('./routes/mobile');
 
 const apiRoutes = require('./routes/api');
-const { CLIENT_RENEG_LIMIT } = require('tls');
+
 // cài đặt path
 app.set('port', 3001);
 app.set('views', path.join(__dirname, 'views'));
@@ -61,5 +61,5 @@ app.post('/test', (req, res) => {
 
     console.log(res);
 
-    res.json(req)
+    res.json("post successfully")
 });
