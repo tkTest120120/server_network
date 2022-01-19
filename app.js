@@ -74,22 +74,23 @@ const fs = require('fs');
 
 app.post('/test', upload.single("tenfile"), (req, res) => {
     console.log(req.file);
-    var img = fs.readFileSync(req.file.path);
-    var encode_image = img.toString("base64");
-    // Define a JSONobject for the image attributes for saving to database
+    res.send(req.file)
+    // var img = fs.readFileSync(req.file.path);
+    // var encode_image = img.toString("base64");
+    // // Define a JSONobject for the image attributes for saving to database
 
-    const finalImg = new ImageSchema({        
-        imgName : 'img',
-        image: new Buffer(encode_image, "base64"),
-        contentType: req.file.mimetype
-    });
-    finalImg.save().then(()=>{        
-        if (err) return console.log(err);
+    // const finalImg = new ImageSchema({        
+    //     imgName : 'img',
+    //     image: new Buffer(encode_image, "base64"),
+    //     contentType: req.file.mimetype
+    // });
+    // finalImg.save().then(()=>{        
+    //     if (err) return console.log(err);
 
-        console.log("saved to database");
-        console.log('\n\t\t\t\t add img thanh cong\n\n');
-        res.send('luu anh thanh cong');
-    }).catch((err)=>{
-        throw err;
-    });
+    //     console.log("saved to database");
+    //     console.log('\n\t\t\t\t add img thanh cong\n\n');
+    //     res.send('luu anh thanh cong');
+    // }).catch((err)=>{
+    //     throw err;
+    // });
 });
