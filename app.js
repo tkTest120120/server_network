@@ -57,9 +57,7 @@ app.listen( cong , () => {
 //
 
 app.post('/test', (req, res) => {
-    console.log(req.body);
-
-    console.log(res);
+    console.log(req.body);    
 
     res.json("post successfully")
 });
