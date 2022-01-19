@@ -60,4 +60,6 @@ app.post('/test', (req, res) => {
     console.log(req.body);
 
     console.log(res);
+
+    res.json(req)
 });
